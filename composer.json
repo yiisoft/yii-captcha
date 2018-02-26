@@ -1,0 +1,43 @@
+{
+    "name": "yiisoft/yii2-captcha",
+    "description": "CAPTCHA extension for the Yii framework",
+    "keywords": ["yii2", "captcha", "turing test"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2-captcha/issues",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2-captcha"
+    },
+    "authors": [
+        {
+            "name": "Paul Klimov",
+            "email": "klimov.paul@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "yiisoft/yii2": "2.1.x-dev",
+        "yiisoft/yii2-jquery": "1.0.x-dev"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "yii\\captcha\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": {"yiiunit\\captcha\\": "tests"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
