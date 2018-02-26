@@ -11,7 +11,7 @@ namespace yii\captcha;
  * DriverInterface defines the common interface to be implemented by CAPTCHA rendering drivers.
  *
  * @author Paul Klimov <klimov.paul@gmail.com>
- * @since 2.1.0
+ * @since 1.0
  */
 interface DriverInterface
 {

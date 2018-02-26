@@ -13,7 +13,7 @@ namespace yii\captcha;
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @author Paul Klimov <klimov.paul@gmail.com>
- * @since 2.1.0
+ * @since 1.0
  */
 trait VerifyCodeGeneratorTrait
 {

@@ -22,7 +22,7 @@ use yii\validators\Validator;
  * even if a user enters the same code as shown in the CAPTCHA image which is actually different from the latest CAPTCHA code.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * @since 1.0
  */
 class CaptchaValidator extends Validator
 {

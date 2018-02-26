@@ -34,7 +34,7 @@ use yii\web\Response;
  * @property string $verifyCode The verification code. This property is read-only.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * @since 1.0
  */
 class CaptchaAction extends Action
 {
@@ -71,7 +71,6 @@ class CaptchaAction extends Action
      *
      * After the action object is created, if you want to change this property, you should assign it
      * with a [[DriverInterface]] object only.
-     * @since 2.1.0
      */
     public $driver;
 
