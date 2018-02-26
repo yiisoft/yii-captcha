@@ -13,6 +13,15 @@
     },
     "authors": [
         {
+            "name": "Qiang Xue",
+            "email": "qiang.xue@gmail.com"
+        },
+        {
+            "name": "Alexander Makarov",
+            "email": "sam@rmcreative.ru",
+            "homepage": "http://rmcreative.ru/"
+        },
+        {
             "name": "Paul Klimov",
             "email": "klimov.paul@gmail.com"
         }

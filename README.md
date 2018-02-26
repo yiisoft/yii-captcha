@@ -2,11 +2,11 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
-    <h1 align="center">HTTP Client Extension for Yii 2</h1>
+    <h1 align="center">CAPTCHA Extension for Yii 2</h1>
     <br>
 </p>
 
-This extension provides the HTTP client for the [Yii framework 2.1](http://www.yiiframework.com).
+This extension provides the CAPTCHA for the [Yii framework 2.1](http://www.yiiframework.com).
 
 For license information check the [LICENSE](LICENSE.md)-file.
 
