@@ -16,8 +16,8 @@ class GdDriverTest extends TestCase
      */
     protected function setUp()
     {
-        if (!extension_loaded('gd') || ($gdInfo = gd_info() && empty($gdInfo['FreeType Support']))) {
-            $this->markTestSkipped('GD PHP extension with FreeType support is required.');
+        if (!extension_loaded('gd') || (($gdInfo = gd_info()) && empty($gdInfo['FreeType Support']))) {
+            $this->markTestSkipped('GD PHP extension with FreeType support is missing.');
         }
 
         parent::setUp();

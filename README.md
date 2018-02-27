@@ -34,4 +34,4 @@ or add
 "yiisoft/yii2-captcha": "~1.0.0"
 ```
 
-to the require section of your composer.json.
+to the require section of your `composer.json`.

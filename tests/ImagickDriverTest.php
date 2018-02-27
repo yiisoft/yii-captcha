@@ -17,7 +17,7 @@ class ImagickDriverTest extends TestCase
     protected function setUp()
     {
         if (!extension_loaded('imagick') || !in_array('PNG', (new \Imagick())->queryFormats('PNG'), true)) {
-            $this->markTestSkipped('GD PHP extension with FreeType support is required.');
+            $this->markTestSkipped('imagick extension is missing.');
         }
 
         parent::setUp();

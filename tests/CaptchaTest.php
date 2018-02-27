@@ -9,23 +9,13 @@ namespace yiiunit\captcha;
 
 use yii\captcha\Captcha;
 use yii\web\AssetManager;
-use yii\jquery\JqueryAsset;
 
 class CaptchaTest extends TestCase
 {
     protected function setUp()
     {
         parent::setUp();
-        $this->mockWebApplication([
-            'components' => [
-                'assetManager' => [
-                    'class' => AssetManager::class,
-                    'bundles' => [
-                        JqueryAsset::class => false,
-                    ],
-                ],
-            ],
-        ]);
+        $this->mockWebApplication();
         $_SERVER['REQUEST_URI'] = 'http://example.com/';
     }
 

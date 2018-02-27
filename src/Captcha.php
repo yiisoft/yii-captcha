@@ -8,7 +8,6 @@
 namespace yii\captcha;
 
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
@@ -105,9 +104,9 @@ class Captcha extends InputWidget
         $input = $this->renderInputHtml('text');
         $route = $this->captchaAction;
         if (is_array($route)) {
-            $route['v'] = uniqid();
+            $route['v'] = uniqid('', true);
         } else {
-            $route = [$route, 'v' => uniqid()];
+            $route = [$route, 'v' => uniqid('', true)];
         }
         $image = Html::img($route, $this->imageOptions);
         return strtr($this->template, [
@@ -126,7 +125,7 @@ class Captcha extends InputWidget
         $id = $this->imageOptions['id'];
         $view = $this->getView();
         CaptchaAsset::register($view);
-        $view->registerJs("jQuery('#$id').yiiCaptcha($options);");
+        $view->registerJs("(new YiiCaptcha('document.getElementById($id)).init($options);");
     }
 
     /**

@@ -25,9 +25,5 @@ class CaptchaAsset extends AssetBundle
     /**
      * {@inheritdoc}
      */
-    public $js = ['yii.captcha.js',];
-    /**
-     * {@inheritdoc}
-     */
-    public $depends = [YiiAsset::class];
+    public $js = ['yii.captcha.js'];
 }
