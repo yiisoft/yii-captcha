@@ -39,7 +39,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "yii\\captcha\\": "src" }
+        "psr-4": {"yii\\captcha\\": "src"}
     },
     "autoload-dev": {
         "psr-4": {"yiiunit\\captcha\\": "tests"}
