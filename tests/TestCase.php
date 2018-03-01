@@ -54,7 +54,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
                     'scriptUrl' => '/index.php',
                 ],
                 'session' => [
-                    'class' => \yiiunit\captcha\data\Session::class,
+                    '__class' => \yiiunit\captcha\data\Session::class,
                 ],
             ]
         ], $config), $appClass);

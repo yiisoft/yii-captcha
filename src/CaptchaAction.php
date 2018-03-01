@@ -63,7 +63,7 @@ class CaptchaAction extends Action
      *
      * ```php
      * [
-     *     'class' => \yii\captcha\ImagickDriver::class,
+     *     '__class' => \yii\captcha\ImagickDriver::class,
      *     // 'backColor' => 0xFFFFFF,
      *     // 'foreColor' => 0x2040A0,
      * ]
