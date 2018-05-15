@@ -31,20 +31,20 @@ function YiiCaptcha(el) {
             try {
                 if (request.readyState === XMLHttpRequest.DONE) {
                     if (request.status === 200) {
-                        var data = JSON.parse(xhr.responseText);
+                        var data = JSON.parse(request.responseText);
                         el.setAttribute('src', data.url);
-                        docuement.getElementsByTagName('body').item(0).setAttribute('data-' + hashKey, [data.hash1, data.hash2]);
+                        document.getElementsByTagName('body')[0].setAttribute('data-' + hashKey, [data.hash1, data.hash2]);
                     } else {
                         alert('There was a problem refreshing captcha.');
                     }
                 }
             } catch (e) {
-                alert('There was a problem refreshing captcha: ' + e.description);
+                alert('There was a problem refreshing captcha: ' + e);
             }
         };
+        request.open('GET', refreshUrl);
         request.setRequestHeader('Cache-Control', 'no-cache');
         request.setRequestHeader('Content-Type', 'application/json');
-        request.open('GET', refreshUrl);
         request.send();
     };
 
