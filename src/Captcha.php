@@ -125,7 +125,7 @@ class Captcha extends InputWidget
         $id = $this->imageOptions['id'];
         $view = $this->getView();
         CaptchaAsset::register($view);
-        $view->registerJs("(new YiiCaptcha('document.getElementById($id)).init($options);");
+        $view->registerJs("(new YiiCaptcha(document.getElementById('$id'))).init($options);");
     }
 
     /**
