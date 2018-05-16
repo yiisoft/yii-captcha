@@ -82,6 +82,9 @@ class CaptchaAction extends Action
     public function init()
     {
         parent::init();
+        if ($this->driver === null || !isset($this->driver['__class'])) {
+            $this->driver['__class'] = GdDriver::class;
+        }
         $this->driver = Instance::ensure($this->driver, DriverInterface::class);
     }
 
