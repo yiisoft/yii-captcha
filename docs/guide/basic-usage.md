@@ -3,11 +3,23 @@ Basic Usage
 
 ## [[yii\captcha\CaptchaValidator]] <span id="captcha-validator"></span>
 
+Yii 2.0:
+
 ```php
 [
     ['verificationCode', 'captcha'],
 ]
 ```
+
+Yii 2.1:
+
+```php
+[
+    ['verificationCode', \yii\captcha\CaptchaValidator::class],
+]
+```
+
+Notes:
 
 This validator is usually used together with [[yii\captcha\CaptchaAction]] and [[yii\captcha\Captcha]]
 to make sure an input is the same as the verification code displayed by [[yii\captcha\Captcha|CAPTCHA]] widget.
