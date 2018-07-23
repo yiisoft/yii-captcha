@@ -7,7 +7,7 @@
 
 namespace yii\captcha;
 
-use yii\base\InvalidConfigException;
+use yii\exceptions\InvalidConfigException;
 
 /**
  * ImagickDriver renders the CAPTCHA image based on the code using [ImageMagick](http://php.net/manual/en/book.imagick.php) library.

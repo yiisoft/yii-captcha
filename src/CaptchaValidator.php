@@ -8,7 +8,7 @@
 namespace yii\captcha;
 
 use Yii;
-use yii\base\InvalidConfigException;
+use yii\exceptions\InvalidConfigException;
 use yii\validators\ValidationAsset;
 use yii\validators\Validator;
 

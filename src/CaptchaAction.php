@@ -9,7 +9,7 @@ namespace yii\captcha;
 
 use Yii;
 use yii\base\Action;
-use yii\base\InvalidConfigException;
+use yii\exceptions\InvalidConfigException;
 use yii\di\Instance;
 use yii\helpers\Url;
 use yii\web\Response;
