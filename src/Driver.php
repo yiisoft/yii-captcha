@@ -9,7 +9,7 @@ namespace yii\captcha;
 
 use Yii;
 use yii\base\Component;
-use yii\base\InvalidConfigException;
+use yii\exceptions\InvalidConfigException;
 
 /**
  * Driver is the base class for CAPTCHA rendering driver classes.

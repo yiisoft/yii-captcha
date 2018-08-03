@@ -7,7 +7,7 @@
 
 namespace yii\captcha;
 
-use yii\base\InvalidConfigException;
+use yii\exceptions\InvalidConfigException;
 
 /**
  * GdDriver renders the CAPTCHA image based on the code using [GD](http://php.net/manual/en/book.image.php) library.
