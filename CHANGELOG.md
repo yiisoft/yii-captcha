@@ -1,5 +1,5 @@
-Yii Framework 2.1 CAPTCHA extension Change Log
-==============================================
+Yii Framework CAPTCHA extension Change Log
+==========================================
 
 1.0.0 under development
 -----------------------
