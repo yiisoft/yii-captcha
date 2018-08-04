@@ -1,15 +1,15 @@
 {
-    "name": "yiisoft/yii2-captcha",
-    "description": "CAPTCHA extension for the Yii framework",
-    "keywords": ["yii2", "captcha", "turing test"],
-    "type": "yii2-extension",
+    "name": "yiisoft/yii-captcha",
+    "description": "Yii Framework CAPTCHA Extension",
+    "keywords": ["yii", "captcha", "turing test"],
+    "type": "library",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2-captcha/issues",
+        "source": "https://github.com/yiisoft/yii-captcha",
+        "issues": "https://github.com/yiisoft/yii-captcha/issues",
         "forum": "http://www.yiiframework.com/forum/",
         "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2-captcha"
+        "irc": "irc://irc.freenode.net/yii"
     },
     "authors": [
         {
@@ -29,7 +29,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "yiisoft/yii2": "3.0.x-dev"
+        "yiisoft/core": "^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0"
