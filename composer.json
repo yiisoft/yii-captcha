@@ -1,6 +1,6 @@
 {
     "name": "yiisoft/yii-captcha",
-    "description": "Yii Framework CAPTCHA Extension",
+    "description": "Yii Framework Captcha widget Extension",
     "keywords": ["yii", "captcha", "turing test"],
     "type": "library",
     "license": "BSD-3-Clause",

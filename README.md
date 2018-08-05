@@ -2,7 +2,7 @@
     <a href="http://www.yiiframework.com/" target="_blank">
         <img src="https://www.yiiframework.com/files/logo/yii.png" width="400" alt="Yii Framework" />
     </a>
-    <h1 align="center">Yii Framework CAPTCHA Extension</h1>
+    <h1 align="center">Yii Framework Captcha widget Extension</h1>
     <br>
 </p>
 
@@ -22,16 +22,6 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Either run
-
 ```
 php composer.phar require --prefer-dist yiisoft/yii-captcha
 ```
-
-or add
-
-```
-"yiisoft/yii-captcha": "~1.0.0"
-```
-
-to the require section of your `composer.json`.
