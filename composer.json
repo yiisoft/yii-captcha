@@ -29,7 +29,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "yiisoft/core": "^3.0"
+        "yiisoft/core": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0"
