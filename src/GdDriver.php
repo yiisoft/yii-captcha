@@ -1,4 +1,7 @@
 <?php
+
+/** @noinspection PhpComposerExtensionStubsInspection */
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -7,6 +10,7 @@
 
 namespace yii\captcha;
 
+use yii\base\Application;
 use yii\exceptions\InvalidConfigException;
 
 /**
@@ -18,11 +22,14 @@ use yii\exceptions\InvalidConfigException;
 class GdDriver extends Driver
 {
     /**
-     * {@inheritdoc}
+     * GdDriver constructor.
+     *
+     * @param Application $app
+     * @throws InvalidConfigException
      */
-    public function init()
+    public function __construct(Application $app)
     {
-        parent::init();
+        parent::__construct($app);
 
         if (!extension_loaded('gd') || (($gdInfo = gd_info()) && empty($gdInfo['FreeType Support']))) {
             throw new InvalidConfigException('GD PHP extension with FreeType support is required.');
@@ -57,7 +64,7 @@ class GdDriver extends Driver
         );
 
         $length = strlen($code);
-        $box = imagettfbbox(30, 0, $this->fontFile, $code);
+        $box = imagettfbbox(30, 0, $this->getFontFile(), $code);
         $w = $box[4] - $box[0] + $this->offset * ($length - 1);
         $h = $box[1] - $box[5];
         $scale = min(($this->width - $this->padding * 2) / $w, ($this->height - $this->padding * 2) / $h);

@@ -7,11 +7,10 @@
 
 namespace yii\captcha;
 
-use Yii;
 use yii\base\Action;
-use yii\exceptions\InvalidConfigException;
-use yii\di\Instance;
+use yii\base\Controller;
 use yii\helpers\Url;
+use yii\helpers\Yii;
 use yii\web\Response;
 
 /**
@@ -74,29 +73,21 @@ class CaptchaAction extends Action
      */
     public $driver;
 
-
-    /**
-     * Initializes the action.
-     * @throws InvalidConfigException if the font file does not exist.
-     */
-    public function init()
-    {
-        parent::init();
-        if ($this->driver === null || !isset($this->driver['__class'])) {
-            $this->driver['__class'] = GdDriver::class;
-        }
-        $this->driver = Instance::ensure($this->driver, DriverInterface::class);
-    }
-
     /**
      * Runs the action.
      */
     public function run()
     {
-        if (Yii::$app->request->getQueryParam(self::REFRESH_GET_VAR) !== null) {
+        if ($this->driver === null || !isset($this->driver['__class'])) {
+            $this->driver['__class'] = GdDriver::class;
+        }
+
+        $this->driver = Yii::ensureObject($this->driver, DriverInterface::class);
+
+        if ($this->app->request->getQueryParam(self::REFRESH_GET_VAR) !== null) {
             // AJAX request for regenerating code
             $code = $this->getVerifyCode(true);
-            Yii::$app->response->format = Response::FORMAT_JSON;
+            $this->app->response->format = Response::FORMAT_JSON;
             return [
                 'hash1' => $this->generateValidationHash($code),
                 'hash2' => $this->generateValidationHash(strtolower($code)),
@@ -107,7 +98,7 @@ class CaptchaAction extends Action
         }
 
         $this->setHttpHeaders();
-        Yii::$app->response->format = Response::FORMAT_RAW;
+        $this->app->response->format = Response::FORMAT_RAW;
 
         return $this->driver->renderImage($this->getVerifyCode());
     }
@@ -137,7 +128,7 @@ class CaptchaAction extends Action
             return $this->fixedVerifyCode;
         }
 
-        $session = Yii::$app->getSession();
+        $session = $this->app->getSession();
         $session->open();
         $name = $this->getSessionKey();
         if ($session->get($name) === null || $regenerate) {
@@ -158,10 +149,10 @@ class CaptchaAction extends Action
     {
         $code = $this->getVerifyCode();
         $valid = $caseSensitive ? ($input === $code) : strcasecmp($input, $code) === 0;
-        $session = Yii::$app->getSession();
+        $session = $this->app->getSession();
         $session->open();
         $name = $this->getSessionKey() . 'count';
-        $session[$name] = $session[$name] + 1;
+        $session[$name] += 1;
         if ($valid || $session[$name] > $this->testLimit && $this->testLimit > 0) {
             $this->getVerifyCode(true);
         }
@@ -183,7 +174,7 @@ class CaptchaAction extends Action
      */
     protected function setHttpHeaders()
     {
-        $response = Yii::$app->getResponse();
+        $response = $this->app->getResponse();
         $response->setHeader('Pragma', 'public');
         $response->setHeader('Expires', '0');
         $response->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0');

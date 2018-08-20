@@ -1,4 +1,7 @@
 <?php
+
+/** @noinspection PhpComposerExtensionStubsInspection */
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -7,6 +10,9 @@
 
 namespace yii\captcha;
 
+use Imagick;
+use ImagickPixel;
+use yii\base\Application;
 use yii\exceptions\InvalidConfigException;
 
 /**
@@ -18,13 +24,16 @@ use yii\exceptions\InvalidConfigException;
 class ImagickDriver extends Driver
 {
     /**
-     * {@inheritdoc}
+     * ImagickDriver constructor.
+     *
+     * @param Application $app
+     * @throws InvalidConfigException if ImageMagick is missing
      */
-    public function init()
+    public function __construct(Application $app)
     {
-        parent::init();
+        parent::__construct($app);
 
-        if (!extension_loaded('imagick') || !in_array('PNG', (new \Imagick())->queryFormats('PNG'), true)) {
+        if (!\extension_loaded('imagick') || !\in_array('PNG', Imagick::queryFormats('PNG'), true)) {
             throw new InvalidConfigException('ImageMagick PHP extension with PNG support is required.');
         }
     }
@@ -34,18 +43,18 @@ class ImagickDriver extends Driver
      */
     public function renderImage($code)
     {
-        $backColor = $this->transparent ? new \ImagickPixel('transparent') : new \ImagickPixel('#' . str_pad(dechex($this->backColor), 6, 0, STR_PAD_LEFT));
-        $foreColor = new \ImagickPixel('#' . str_pad(dechex($this->foreColor), 6, 0, STR_PAD_LEFT));
+        $backColor = $this->transparent ? new ImagickPixel('transparent') : new ImagickPixel('#' . str_pad(dechex($this->backColor), 6, 0, STR_PAD_LEFT));
+        $foreColor = new ImagickPixel('#' . str_pad(dechex($this->foreColor), 6, 0, STR_PAD_LEFT));
 
-        $image = new \Imagick();
+        $image = new Imagick();
         $image->newImage($this->width, $this->height, $backColor);
 
         $draw = new \ImagickDraw();
-        $draw->setFont($this->fontFile);
+        $draw->setFont($this->getFontFile());
         $draw->setFontSize(30);
         $fontMetrics = $image->queryFontMetrics($draw, $code);
 
-        $length = strlen($code);
+        $length = \strlen($code);
         $w = (int) $fontMetrics['textWidth'] - 8 + $this->offset * ($length - 1);
         $h = (int) $fontMetrics['textHeight'] - 8;
         $scale = min(($this->width - $this->padding * 2) / $w, ($this->height - $this->padding * 2) / $h);

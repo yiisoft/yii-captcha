@@ -7,7 +7,7 @@
 
 namespace yii\captcha;
 
-use Yii;
+use yii\base\Application;
 use yii\base\Component;
 use yii\exceptions\InvalidConfigException;
 
@@ -55,23 +55,48 @@ abstract class Driver extends Component implements DriverInterface
      * @var bool whether to use transparent background. Defaults to false.
      */
     public $transparent = false;
-    /**
-     * @var string the TrueType font file. This can be either a file path or [path alias](guide:concept-aliases).
-     */
-    public $fontFile = '@yii/captcha/SpicyRice.ttf';
-
 
     /**
-     * {@inheritdoc}
+     * @var string|null the TrueType font file. This can be either a file path or [path alias](guide:concept-aliases).
      */
-    public function init()
+    protected $fontFile;
+
+    /**
+     * @var Application
+     */
+    protected $app;
+
+    /**
+     * Driver constructor.
+     *
+     * @param Application $app
+     */
+    public function __construct(Application $app)
     {
-        parent::init();
+        $this->app = $app;
+    }
 
-        $this->fontFile = Yii::getAlias($this->fontFile);
-        if (!is_file($this->fontFile)) {
-            throw new InvalidConfigException("The font file does not exist: {$this->fontFile}");
+    /**
+     * @return null|string
+     */
+    public function getFontFile(): string
+    {
+        if ($this->fontFile === null) {
+            $this->setFontFile('@yii/captcha/SpicyRice.ttf');
         }
+
+        return $this->fontFile;
+    }
+
+    /**
+     * @param string $fontFile
+     * @return Driver
+     */
+    public function setFontFile(string $fontFile): self
+    {
+        $this->fontFile = $this->app->getAlias($fontFile);
+
+        return $this;
     }
 
     /**
@@ -79,6 +104,12 @@ abstract class Driver extends Component implements DriverInterface
      */
     public function getImageMimeType()
     {
+        $file = $this->getFontFile();
+
+        if (!is_file($file)) {
+            throw new InvalidConfigException("The font file does not exist: {$file}");
+        }
+
         return 'image/png';
     }
 }

@@ -85,7 +85,7 @@ class Captcha extends InputWidget
     /**
      * Initializes the widget.
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
