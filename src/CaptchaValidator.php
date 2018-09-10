@@ -7,7 +7,7 @@
 
 namespace yii\captcha;
 
-use Yii;
+use yii\helpers\Yii;
 use yii\exceptions\InvalidConfigException;
 use yii\validators\ValidationAsset;
 use yii\validators\Validator;
@@ -43,11 +43,11 @@ class CaptchaValidator extends Validator
     /**
      * {@inheritdoc}
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         if ($this->message === null) {
-            $this->message = Yii::t('yii', 'The verification code is incorrect.');
+            $this->message = Yii::getApp()->t('yii', 'The verification code is incorrect.');
         }
     }
 
@@ -69,7 +69,7 @@ class CaptchaValidator extends Validator
      */
     public function createCaptchaAction()
     {
-        $ca = Yii::$app->createController($this->captchaAction);
+        $ca = Yii::getApp()->createController($this->captchaAction);
         if ($ca !== false) {
             /* @var $controller \yii\base\Controller */
             [$controller, $actionID] = $ca;
@@ -104,9 +104,9 @@ class CaptchaValidator extends Validator
             'hash' => $hash,
             'hashKey' => 'yiiCaptcha/' . $captcha->getUniqueId(),
             'caseSensitive' => $this->caseSensitive,
-            'message' => Yii::$app->getI18n()->format($this->message, [
+            'message' => Yii::getApp()->getI18n()->format($this->message, [
                 'attribute' => $model->getAttributeLabel($attribute),
-            ], Yii::$app->language),
+            ], Yii::getApp()->language),
         ];
         if ($this->skipOnEmpty) {
             $options['skipOnEmpty'] = 1;
