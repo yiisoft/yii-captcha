@@ -8,6 +8,7 @@
 namespace yiiunit\captcha;
 
 use yii\captcha\ImagickDriver;
+use yii\tests\TestCase;
 
 class ImagickDriverTest extends TestCase
 {
@@ -21,11 +22,12 @@ class ImagickDriverTest extends TestCase
         }
 
         parent::setUp();
+        $this->mockWebApplication();
     }
 
     public function testRenderImage()
     {
-        $driver = new ImagickDriver();
+        $driver = new ImagickDriver($this->app);
         $driver->width = 222;
         $driver->height = 111;
 

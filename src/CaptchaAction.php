@@ -78,7 +78,7 @@ class CaptchaAction extends Action
      */
     public function run()
     {
-        if ($this->driver === null || !isset($this->driver['__class'])) {
+        if ($this->driver === null || (is_array($this->driver) && !isset($this->driver['__class']))) {
             $this->driver['__class'] = GdDriver::class;
         }
 

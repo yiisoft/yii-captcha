@@ -10,7 +10,7 @@ namespace yiiunit\captcha;
 use yii\captcha\Captcha;
 use yii\web\AssetManager;
 
-class CaptchaTest extends TestCase
+class CaptchaTest extends \yii\tests\TestCase
 {
     protected function setUp()
     {

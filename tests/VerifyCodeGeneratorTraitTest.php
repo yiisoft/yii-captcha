@@ -8,13 +8,17 @@
 namespace yiiunit\captcha;
 
 use yii\captcha\Driver;
+use yii\tests\TestCase;
 
 class VerifyCodeGeneratorTraitTest extends TestCase
 {
     public function testGenerateVerifyCode()
     {
+        $this->mockWebApplication();
+
         /* @var $driver Driver */
         $driver = $this->getMockBuilder(Driver::class)
+            ->setConstructorArgs([$this->app])
             ->getMockForAbstractClass();
 
         $this->assertNotEmpty($driver->generateVerifyCode());
