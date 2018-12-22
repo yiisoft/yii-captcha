@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-pecl install imagick
+yes | pecl install imagick
