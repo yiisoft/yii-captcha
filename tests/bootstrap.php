@@ -10,7 +10,7 @@ use yii\di\Container;
 use yii\helpers\Yii;
 
 // ensure we get report on all possible php errors
-error_reporting(E_ALL);
+error_reporting(-1);
 
 define('YII_ENABLE_ERROR_HANDLER', false);
 define('YII_DEBUG', true);
@@ -29,8 +29,6 @@ $_SERVER['SCRIPT_FILENAME'] = __FILE__;
 
     $container = new Container(require Builder::path('tests'));
 
-    //Yii::setAlias('@yiiunit/captcha', __DIR__);
-    //Yii::setAlias('@yii/captcha', dirname(__DIR__) . '/src');
     Yii::setContainer($container);
 })();
 

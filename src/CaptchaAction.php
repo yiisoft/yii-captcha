@@ -10,7 +10,6 @@ namespace yii\captcha;
 use yii\base\Action;
 use yii\base\Controller;
 use yii\helpers\Url;
-use yii\helpers\Yii;
 use yii\web\Response;
 
 /**
@@ -82,7 +81,7 @@ class CaptchaAction extends Action
             $this->driver['__class'] = GdDriver::class;
         }
 
-        $this->driver = Yii::ensureObject($this->driver, DriverInterface::class);
+        $this->driver = $this->app->ensureObject($this->driver, DriverInterface::class);
 
         if ($this->app->request->getQueryParam(self::REFRESH_GET_VAR) !== null) {
             // AJAX request for regenerating code
