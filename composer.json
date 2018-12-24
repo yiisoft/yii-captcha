@@ -43,7 +43,7 @@
         "psr-4": {"yii\\captcha\\": "src"}
     },
     "autoload-dev": {
-        "psr-4": {"yiiunit\\captcha\\": "tests"}
+        "psr-4": {"yii\\captcha\\tests\\": "tests"}
     },
     "extra": {
         "branch-alias": {

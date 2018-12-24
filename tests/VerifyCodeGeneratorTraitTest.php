@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yiiunit\captcha;
+namespace yii\captcha\tests;
 
 use yii\captcha\Driver;
 use yii\tests\TestCase;

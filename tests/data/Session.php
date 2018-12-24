@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yiiunit\captcha\data;
+namespace yii\captcha\tests\data;
 
 /**
  * Web session class mock.
