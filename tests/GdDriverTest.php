@@ -8,6 +8,7 @@
 namespace yiiunit\captcha;
 
 use yii\captcha\GdDriver;
+use yii\tests\TestCase;
 
 class GdDriverTest extends TestCase
 {
@@ -21,11 +22,12 @@ class GdDriverTest extends TestCase
         }
 
         parent::setUp();
+        $this->mockWebApplication();
     }
 
     public function testRenderImage()
     {
-        $driver = new GdDriver();
+        $driver = new GdDriver($this->app);
         $driver->width = 222;
         $driver->height = 111;
 

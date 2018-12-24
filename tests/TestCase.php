@@ -9,7 +9,7 @@ namespace yiiunit\captcha;
 
 use yii\di\Container;
 use yii\helpers\ArrayHelper;
-use Yii;
+use yii\helpers\Yii;
 
 /**
  * This is the base class for all unit tests.

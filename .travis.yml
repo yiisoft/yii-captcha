@@ -3,6 +3,7 @@ language: php
 php:
   - 7.1
   - 7.2
+  - 7.3
 
 matrix:
   fast_finish: true
@@ -18,13 +19,8 @@ cache:
 install:
   - travis_retry composer self-update && composer --version
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - tests/data/travis/imagick-setup.sh
   - travis_retry composer install --prefer-dist --no-interaction
 
-before_script:
-  - |
-    if [ $TRAVIS_PHP_VERSION = '5.6' ]; then
-      PHPUNIT_FLAGS="--coverage-clover=coverage.clover"
-    fi
-
 script:
-  - phpunit $PHPUNIT_FLAGS
+  - phpunit
