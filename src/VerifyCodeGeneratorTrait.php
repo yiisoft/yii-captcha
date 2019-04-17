@@ -22,10 +22,10 @@ trait VerifyCodeGeneratorTrait
      */
     public $maxLength = 7;
 
-
     /**
      * Generates new CAPTCHA code.
      * @return string CAPTCHA code.
+     * @throws \Exception if it was not possible to gather sufficient entropy.
      */
     public function generateVerifyCode(): string
     {
@@ -44,7 +44,7 @@ trait VerifyCodeGeneratorTrait
         $vowels = 'aeiou';
         $code = '';
         for ($i = 0; $i < $length; ++$i) {
-            if ($i % 2 && random_int(0, 10) > 2 || !($i % 2) && random_int(0, 10) > 9) {
+            if (($i % 2 && random_int(0, 10) > 2) || (!($i % 2) && random_int(0, 10) > 9)) {
                 $code .= $vowels[random_int(0, 4)];
             } else {
                 $code .= $letters[random_int(0, 20)];
