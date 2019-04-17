@@ -8,7 +8,6 @@
 namespace yii\captcha;
 
 use yii\base\Action;
-use yii\base\Controller;
 use yii\helpers\Url;
 use yii\web\Response;
 
@@ -30,16 +29,13 @@ use yii\web\Response;
  * 3. In the controller view, insert a [[Captcha]] widget in the form.
  *
  * @property string $verifyCode The verification code. This property is read-only.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 1.0
  */
 class CaptchaAction extends Action
 {
     /**
      * The name of the GET parameter indicating whether the CAPTCHA image should be regenerated.
      */
-    const REFRESH_GET_VAR = 'refresh';
+    public const REFRESH_GET_VAR = 'refresh';
 
     /**
      * @var int how many times should the same CAPTCHA be displayed. Defaults to 3.
@@ -107,7 +103,7 @@ class CaptchaAction extends Action
      * @param string $code the CAPTCHA code
      * @return string a hash code generated from the CAPTCHA code
      */
-    public function generateValidationHash($code)
+    public function generateValidationHash(string $code): string
     {
         for ($h = 0, $i = strlen($code) - 1; $i >= 0; --$i) {
             $h += ord($code[$i]);
@@ -121,7 +117,7 @@ class CaptchaAction extends Action
      * @param bool $regenerate whether the verification code should be regenerated.
      * @return string the verification code.
      */
-    public function getVerifyCode($regenerate = false)
+    public function getVerifyCode(bool $regenerate = false): string
     {
         if ($this->fixedVerifyCode !== null) {
             return $this->fixedVerifyCode;
@@ -144,11 +140,11 @@ class CaptchaAction extends Action
      * @param bool $caseSensitive whether the comparison should be case-sensitive
      * @return bool whether the input is valid
      */
-    public function validate($input, $caseSensitive)
+    public function validate(string $input, bool $caseSensitive): bool
     {
         $code = $this->getVerifyCode();
         $valid = $caseSensitive ? ($input === $code) : strcasecmp($input, $code) === 0;
-        $session = $this->app->getSession();
+        $session = $this->getApp()->getSession();
         $session->open();
         $name = $this->getSessionKey() . 'count';
         $session[$name] += 1;
@@ -163,7 +159,7 @@ class CaptchaAction extends Action
      * Returns the session variable name used to store verification code.
      * @return string the session variable name
      */
-    protected function getSessionKey()
+    protected function getSessionKey(): string
     {
         return '__captcha/' . $this->getUniqueId();
     }
@@ -171,9 +167,9 @@ class CaptchaAction extends Action
     /**
      * Sets the HTTP headers needed by image response.
      */
-    protected function setHttpHeaders()
+    protected function setHttpHeaders(): void
     {
-        $response = $this->app->getResponse();
+        $response = $this->getApp()->getResponse();
         $response->setHeader('Pragma', 'public');
         $response->setHeader('Expires', '0');
         $response->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0');
