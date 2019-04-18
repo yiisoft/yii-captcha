@@ -8,7 +8,6 @@
 namespace yii\captcha\tests;
 
 use yii\captcha\Captcha;
-use yii\web\AssetManager;
 
 class CaptchaTest extends \yii\tests\TestCase
 {

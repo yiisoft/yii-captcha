@@ -17,9 +17,6 @@ use yii\exceptions\InvalidConfigException;
 
 /**
  * ImagickDriver renders the CAPTCHA image based on the code using [ImageMagick](http://php.net/manual/en/book.imagick.php) library.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 1.0
  */
 class ImagickDriver extends Driver
 {
@@ -41,7 +38,7 @@ class ImagickDriver extends Driver
     /**
      * {@inheritdoc}
      */
-    public function renderImage($code)
+    public function renderImage(string $code): string
     {
         $backColor = $this->transparent ? new ImagickPixel('transparent') : new ImagickPixel('#' . str_pad(dechex($this->backColor), 6, 0, STR_PAD_LEFT));
         $foreColor = new ImagickPixel('#' . str_pad(dechex($this->foreColor), 6, 0, STR_PAD_LEFT));

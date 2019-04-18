@@ -3,16 +3,6 @@ Basic Usage
 
 ## [[yii\captcha\CaptchaValidator]] <span id="captcha-validator"></span>
 
-Yii 2.0:
-
-```php
-[
-    ['verificationCode', 'captcha'],
-]
-```
-
-Yii 2.1:
-
 ```php
 [
     ['verificationCode', \yii\captcha\CaptchaValidator::class],

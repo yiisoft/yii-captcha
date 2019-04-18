@@ -7,7 +7,6 @@
 
 namespace yii\captcha\tests;
 
-use yii\helpers\Yii;
 use yii\captcha\CaptchaAction;
 use yii\captcha\Driver;
 use yii\web\Controller;

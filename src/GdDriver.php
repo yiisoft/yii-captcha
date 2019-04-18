@@ -15,9 +15,6 @@ use yii\exceptions\InvalidConfigException;
 
 /**
  * GdDriver renders the CAPTCHA image based on the code using [GD](http://php.net/manual/en/book.image.php) library.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 1.0
  */
 class GdDriver extends Driver
 {
@@ -39,7 +36,7 @@ class GdDriver extends Driver
     /**
      * {@inheritdoc}
      */
-    public function renderImage($code)
+    public function renderImage(string $code): string
     {
         $image = imagecreatetruecolor($this->width, $this->height);
 

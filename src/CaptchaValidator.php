@@ -7,8 +7,8 @@
 
 namespace yii\captcha;
 
-use yii\helpers\Yii;
 use yii\exceptions\InvalidConfigException;
+use yii\helpers\Yii;
 use yii\validators\ValidationAsset;
 use yii\validators\Validator;
 
@@ -20,9 +20,6 @@ use yii\validators\Validator;
  * Note that once CAPTCHA validation succeeds, a new CAPTCHA will be generated automatically. As a result,
  * CAPTCHA validation should not be used in AJAX validation mode because it may fail the validation
  * even if a user enters the same code as shown in the CAPTCHA image which is actually different from the latest CAPTCHA code.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 1.0
  */
 class CaptchaValidator extends Validator
 {
@@ -73,6 +70,7 @@ class CaptchaValidator extends Validator
         if ($ca !== false) {
             /* @var $controller \yii\base\Controller */
             [$controller, $actionID] = $ca;
+            /** @var $action CaptchaAction */
             $action = $controller->createAction($actionID);
             if ($action !== null) {
                 return $action;

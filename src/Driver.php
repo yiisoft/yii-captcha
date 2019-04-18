@@ -16,10 +16,6 @@ use yii\exceptions\InvalidConfigException;
  *
  * By configuring the properties of Driver, you may customize the appearance of
  * the generated CAPTCHA images, such as the font color, the background color, etc.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @author Paul Klimov <klimov.paul@gmail.com>
- * @since 1.0
  */
 abstract class Driver extends Component implements DriverInterface
 {
@@ -102,7 +98,7 @@ abstract class Driver extends Component implements DriverInterface
     /**
      * {@inheritdoc}
      */
-    public function getImageMimeType()
+    public function getImageMimeType(): string
     {
         $file = $this->getFontFile();
 

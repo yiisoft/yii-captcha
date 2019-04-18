@@ -1,7 +1,7 @@
-CAPTCHA Extension for Yii 2
-===========================
+CAPTCHA Extension for Yii
+=========================
 
-This extension provides the CAPTCHA for the [Yii framework 2.1](http://www.yiiframework.com).
+This extension provides the CAPTCHA for the [Yii framework 3](http://www.yiiframework.com).
 
 Getting Started
 ---------------

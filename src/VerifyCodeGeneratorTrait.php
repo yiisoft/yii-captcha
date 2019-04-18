@@ -10,10 +10,6 @@ namespace yii\captcha;
 /**
  * VerifyCodeGeneratorTrait provides configurable implementation for [[DriverInterface::generateVerifyCode()]].
  * This trait should be used at the class, which implements [[DriverInterface]].
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @author Paul Klimov <klimov.paul@gmail.com>
- * @since 1.0
  */
 trait VerifyCodeGeneratorTrait
 {
@@ -26,12 +22,12 @@ trait VerifyCodeGeneratorTrait
      */
     public $maxLength = 7;
 
-
     /**
      * Generates new CAPTCHA code.
      * @return string CAPTCHA code.
+     * @throws \Exception if it was not possible to gather sufficient entropy.
      */
-    public function generateVerifyCode()
+    public function generateVerifyCode(): string
     {
         if ($this->minLength > $this->maxLength) {
             $this->maxLength = $this->minLength;
@@ -48,7 +44,7 @@ trait VerifyCodeGeneratorTrait
         $vowels = 'aeiou';
         $code = '';
         for ($i = 0; $i < $length; ++$i) {
-            if ($i % 2 && random_int(0, 10) > 2 || !($i % 2) && random_int(0, 10) > 9) {
+            if (($i % 2 && random_int(0, 10) > 2) || (!($i % 2) && random_int(0, 10) > 9)) {
                 $code .= $vowels[random_int(0, 4)];
             } else {
                 $code .= $letters[random_int(0, 20)];

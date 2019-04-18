@@ -6,8 +6,6 @@
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
- * @author Alexaner Makarov <sam@rmcreative.ru>
- * @since 1.0
  */
 function YiiCaptcha(el) {
     var refreshUrl,

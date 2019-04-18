@@ -52,9 +52,6 @@ use yii\widgets\InputWidget;
  *     // configure additional widget properties here
  * ]) ?>
  * ```
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 1.0
  */
 class Captcha extends InputWidget
 {
@@ -131,7 +128,7 @@ class Captcha extends InputWidget
      * Returns the options for the captcha JS widget.
      * @return array the options
      */
-    protected function getClientOptions()
+    protected function getClientOptions(): array
     {
         $route = $this->captchaAction;
         if (is_array($route)) {
