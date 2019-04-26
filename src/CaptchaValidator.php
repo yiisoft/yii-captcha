@@ -9,7 +9,7 @@ namespace Yiisoft\Yii\Captcha;
 
 use yii\exceptions\InvalidConfigException;
 use yii\helpers\Yii;
-use yii\jquery\ValidationAsset;
+use Yiisoft\Yii\JQuery\ValidationAsset;
 use yii\validators\Validator;
 
 /**
