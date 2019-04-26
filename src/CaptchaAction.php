@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha;
+namespace Yiisoft\Yii\Captcha;
 
 use yii\base\Action;
 use yii\helpers\Url;
@@ -14,7 +14,7 @@ use yii\web\Response;
 /**
  * CaptchaAction renders a CAPTCHA image.
  *
- * CaptchaAction is used together with [[Captcha]] and [[\yii\captcha\CaptchaValidator]]
+ * CaptchaAction is used together with [[Captcha]] and [[\Yiisoft\Yii\Captcha\CaptchaValidator]]
  * to provide the [CAPTCHA](http://en.wikipedia.org/wiki/Captcha) feature.
  *
  * You should configure [[driver]] with the actual CAPTCHA rendering driver to be used.
@@ -57,7 +57,7 @@ class CaptchaAction extends Action
      *
      * ```php
      * [
-     *     '__class' => \yii\captcha\ImagickDriver::class,
+     *     '__class' => \Yiisoft\Yii\Captcha\ImagickDriver::class,
      *     // 'backColor' => 0xFFFFFF,
      *     // 'foreColor' => 0x2040A0,
      * ]

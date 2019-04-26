@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha;
+namespace Yiisoft\Yii\Captcha;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -24,7 +24,7 @@ use yii\widgets\InputWidget;
  * When the user clicks on the CAPTCHA image, it will cause the CAPTCHA image
  * to be refreshed with a new CAPTCHA.
  *
- * You may use [[\yii\captcha\CaptchaValidator]] to validate the user input matches
+ * You may use [[\Yiisoft\Yii\Captcha\CaptchaValidator]] to validate the user input matches
  * the current CAPTCHA verification code.
  *
  * The following example shows how to use this widget with a model attribute:
@@ -48,7 +48,7 @@ use yii\widgets\InputWidget;
  * method, for example like this:
  *
  * ```php
- * <?= $form->field($model, 'captcha')->widget(\yii\captcha\Captcha::class, [
+ * <?= $form->field($model, 'captcha')->widget(\Yiisoft\Yii\Captcha\Captcha::class, [
  *     // configure additional widget properties here
  * ]) ?>
  * ```

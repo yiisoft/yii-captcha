@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha;
+namespace Yiisoft\Yii\Captcha;
 
 /**
  * VerifyCodeGeneratorTrait provides configurable implementation for [[DriverInterface::generateVerifyCode()]].

@@ -5,10 +5,10 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha\tests;
+namespace Yiisoft\Yii\Captcha\Tests;
 
-use yii\captcha\CaptchaAction;
-use yii\captcha\Driver;
+use Yiisoft\Yii\Captcha\CaptchaAction;
+use Yiisoft\Yii\Captcha\Driver;
 use yii\web\Controller;
 use yii\web\Response;
 

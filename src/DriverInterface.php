@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha;
+namespace Yiisoft\Yii\Captcha;
 
 /**
  * DriverInterface defines the common interface to be implemented by CAPTCHA rendering drivers.

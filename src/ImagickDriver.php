@@ -8,7 +8,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha;
+namespace Yiisoft\Yii\Captcha;
 
 use Imagick;
 use ImagickPixel;

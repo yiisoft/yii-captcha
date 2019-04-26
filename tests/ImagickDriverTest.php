@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha\tests;
+namespace Yiisoft\Yii\Captcha\Tests;
 
-use yii\captcha\ImagickDriver;
+use Yiisoft\Yii\Captcha\ImagickDriver;
 use yii\tests\TestCase;
 
 class ImagickDriverTest extends TestCase

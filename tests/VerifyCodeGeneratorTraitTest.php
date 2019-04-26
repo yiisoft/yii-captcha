@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha\tests;
+namespace Yiisoft\Yii\Captcha\Tests;
 
-use yii\captcha\Driver;
+use Yiisoft\Yii\Captcha\Driver;
 use yii\tests\TestCase;
 
 class VerifyCodeGeneratorTraitTest extends TestCase
