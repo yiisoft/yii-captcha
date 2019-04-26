@@ -78,7 +78,7 @@ abstract class Driver extends Component implements DriverInterface
     public function getFontFile(): string
     {
         if ($this->fontFile === null) {
-            $this->setFontFile('@yii/captcha/SpicyRice.ttf');
+            $this->setFontFile('@Yiisoft/Yii/Captcha/SpicyRice.ttf');
         }
 
         return $this->fontFile;
