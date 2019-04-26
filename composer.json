@@ -41,10 +41,10 @@
         "yiisoft/yii-web": "^3.0@dev"
     },
     "autoload": {
-        "psr-4": {"yii\\captcha\\": "src"}
+        "psr-4": {"Yiisoft\\Yii\\Captcha\\": "src"}
     },
     "autoload-dev": {
-        "psr-4": {"yii\\captcha\\tests\\": "tests"}
+        "psr-4": {"Yiisoft\\Yii\\Captcha\\Tests\\": "tests"}
     },
     "extra": {
         "branch-alias": {

@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha\tests;
+namespace Yiisoft\Yii\Captcha\Tests;
 
-use yii\captcha\Captcha;
+use Yiisoft\Yii\Captcha\Captcha;
 
 class CaptchaTest extends \yii\tests\TestCase
 {

@@ -5,9 +5,9 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha\tests;
+namespace Yiisoft\Yii\Captcha\Tests;
 
-use yii\captcha\GdDriver;
+use Yiisoft\Yii\Captcha\GdDriver;
 use yii\tests\TestCase;
 
 class GdDriverTest extends TestCase

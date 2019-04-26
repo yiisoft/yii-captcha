@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace yii\captcha;
+namespace Yiisoft\Yii\Captcha;
 
 use yii\exceptions\InvalidConfigException;
 use yii\helpers\Yii;
@@ -61,7 +61,7 @@ class CaptchaValidator extends Validator
 
     /**
      * Creates the CAPTCHA action object from the route specified by [[captchaAction]].
-     * @return \yii\captcha\CaptchaAction the action object
+     * @return \Yiisoft\Yii\Captcha\CaptchaAction the action object
      * @throws InvalidConfigException
      */
     public function createCaptchaAction()

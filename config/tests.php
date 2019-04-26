@@ -6,7 +6,7 @@ return [
     'app' => [
         'id' => 'testapp',
         'aliases' => [
-            '@webroot'           => '@yii/captcha/tests/data/web',
+            '@webroot'           => '@Yiisoft/Yii/Captcha/Tests/Data/web',
             '@runtime'           => $_ENV['TEST_RUNTIME_PATH'],
             '@yii/tests/runtime' => $_ENV['TEST_RUNTIME_PATH'],
         ],
@@ -16,7 +16,10 @@ return [
         'basePath'  => '@webroot/assets',
         'baseUrl'   => '@web/assets',
     ],
+    'view' => [
+        '__class' => \yii\web\View::class,
+    ],
     'session' => [
-        '__class' => \yii\captcha\tests\data\Session::class,
+        '__class' => \Yiisoft\Yii\Captcha\Tests\Data\Session::class,
     ],
 ];
