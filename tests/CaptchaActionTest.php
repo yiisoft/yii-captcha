@@ -22,12 +22,11 @@ class CaptchaActionTest extends \yii\tests\TestCase
     }
 
     /**
-     * @param array $config controller config.
      * @return Controller controller instance.
      */
-    protected function createController($config = [])
+    protected function createController()
     {
-        return $this->app->controller = new Controller('test', $this->app, $config);
+        return $this->app->controller = new Controller('test', $this->app);
     }
 
     public function testRun()
@@ -66,10 +65,8 @@ class CaptchaActionTest extends \yii\tests\TestCase
             ->setConstructorArgs([$this->app])
             ->getMockForAbstractClass();
 
-        $action = new CaptchaAction('test', $this->createController(), [
-            'driver' => $driver
-        ]);
-        //var_dump($action->getVerifyCode(true));
+        $action = new CaptchaAction('test', $this->createController());
+        $action->driver = $driver;
 
         $this->app->request->setQueryParams([CaptchaAction::REFRESH_GET_VAR => true]);
 

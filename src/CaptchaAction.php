@@ -126,7 +126,7 @@ class CaptchaAction extends Action
         $session = $this->app->getSession();
         $session->open();
         $name = $this->getSessionKey();
-        if ($session->get($name) === null || $regenerate) {
+        if ($regenerate || $session->get($name) === null) {
             $session->set($name, $this->driver->generateVerifyCode());
             $session->set($name . 'count', 1);
         }
