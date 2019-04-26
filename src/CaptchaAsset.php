@@ -17,7 +17,7 @@ class CaptchaAsset extends AssetBundle
     /**
      * {@inheritdoc}
      */
-    public $sourcePath = '@yii/captcha/assets';
+    public $sourcePath = '@Yiisoft/Yii/Captcha/assets';
     /**
      * {@inheritdoc}
      */
