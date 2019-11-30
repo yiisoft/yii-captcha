@@ -2,7 +2,11 @@
     "name": "yiisoft/yii-captcha",
     "type": "library",
     "description": "Yii Framework CAPTCHA Extension",
-    "keywords": ["yii", "captcha", "turing test"],
+    "keywords": [
+        "yii",
+        "captcha",
+        "turing test"
+    ],
     "license": "BSD-3-Clause",
     "support": {
         "source": "https://github.com/yiisoft/yii-captcha",
@@ -23,14 +27,21 @@
         "phpunit/phpunit": "^7.3"
     },
     "autoload": {
-        "psr-4": {"Yiisoft\\Yii\\Captcha\\": "src"}
+        "psr-4": {
+            "Yiisoft\\Yii\\Captcha\\": "src"
+        }
     },
     "autoload-dev": {
-        "psr-4": {"Yiisoft\\Yii\\Captcha\\Tests\\": "tests"}
+        "psr-4": {
+            "Yiisoft\\Yii\\Captcha\\Tests\\": "tests"
+        }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "3.0.x-dev"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
