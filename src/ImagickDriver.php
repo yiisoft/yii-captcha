@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 /** @noinspection PhpComposerExtensionStubsInspection */
 
 /**
  * @link http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -24,6 +27,7 @@ class ImagickDriver extends Driver
      * ImagickDriver constructor.
      *
      * @param Application $app
+     *
      * @throws InvalidConfigException if ImageMagick is missing
      */
     public function __construct(Application $app)

@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @link http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -9,8 +12,8 @@ namespace Yiisoft\Yii\Captcha;
 
 use yii\exceptions\InvalidConfigException;
 use yii\helpers\Yii;
-use Yiisoft\Yii\JQuery\ValidationAsset;
 use yii\validators\Validator;
+use Yiisoft\Yii\JQuery\ValidationAsset;
 
 /**
  * CaptchaValidator validates that the attribute value is the same as the verification code displayed in the CAPTCHA.
@@ -36,7 +39,6 @@ class CaptchaValidator extends Validator
      */
     public $captchaAction = 'site/captcha';
 
-
     /**
      * {@inheritdoc}
      */
@@ -61,8 +63,10 @@ class CaptchaValidator extends Validator
 
     /**
      * Creates the CAPTCHA action object from the route specified by [[captchaAction]].
-     * @return \Yiisoft\Yii\Captcha\CaptchaAction the action object
+     *
      * @throws InvalidConfigException
+     *
+     * @return \Yiisoft\Yii\Captcha\CaptchaAction the action object
      */
     public function createCaptchaAction()
     {

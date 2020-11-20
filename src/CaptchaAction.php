@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @link http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -51,7 +54,7 @@ class CaptchaAction extends Action
      */
     public $fixedVerifyCode;
     /**
-     * @var DriverInterface|array|string the driver to be used for CAPTCHA rendering. It could be either an instance
+     * @var array|DriverInterface|string the driver to be used for CAPTCHA rendering. It could be either an instance
      * of [[DriverInterface]] or its DI compatible configuration.
      * For example:
      *
@@ -100,7 +103,9 @@ class CaptchaAction extends Action
 
     /**
      * Generates a hash code that can be used for client-side validation.
+     *
      * @param string $code the CAPTCHA code
+     *
      * @return string a hash code generated from the CAPTCHA code
      */
     public function generateValidationHash(string $code): string
@@ -114,7 +119,9 @@ class CaptchaAction extends Action
 
     /**
      * Gets the verification code.
+     *
      * @param bool $regenerate whether the verification code should be regenerated.
+     *
      * @return string the verification code.
      */
     public function getVerifyCode(bool $regenerate = false): string
@@ -136,8 +143,10 @@ class CaptchaAction extends Action
 
     /**
      * Validates the input to see if it matches the generated code.
+     *
      * @param string $input user input
      * @param bool $caseSensitive whether the comparison should be case-sensitive
+     *
      * @return bool whether the input is valid
      */
     public function validate(string $input, bool $caseSensitive): bool
@@ -157,6 +166,7 @@ class CaptchaAction extends Action
 
     /**
      * Returns the session variable name used to store verification code.
+     *
      * @return string the session variable name
      */
     protected function getSessionKey(): string

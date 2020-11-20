@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @link http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -56,13 +59,14 @@ use yii\widgets\InputWidget;
 class Captcha extends InputWidget
 {
     /**
-     * @var string|array the route of the action that generates the CAPTCHA images.
+     * @var array|string the route of the action that generates the CAPTCHA images.
      * The action represented by this route must be an action of [[CaptchaAction]].
      * Please refer to [[\yii\helpers\Url::toRoute()]] for acceptable formats.
      */
     public $captchaAction = '/site/captcha';
     /**
      * @var array HTML attributes to be applied to the CAPTCHA image tag.
+     *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $imageOptions = [];
@@ -74,10 +78,10 @@ class Captcha extends InputWidget
     public $template = '{image} {input}';
     /**
      * @var array the HTML attributes for the input tag.
+     *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $options = ['class' => 'form-control'];
-
 
     /**
      * Initializes the widget.
@@ -126,6 +130,7 @@ class Captcha extends InputWidget
 
     /**
      * Returns the options for the captcha JS widget.
+     *
      * @return array the options
      */
     protected function getClientOptions(): array
@@ -137,11 +142,9 @@ class Captcha extends InputWidget
             $route = [$route, CaptchaAction::REFRESH_GET_VAR => 1];
         }
 
-        $options = [
+        return [
             'refreshUrl' => Url::toRoute($route),
             'hashKey' => 'yii-captcha-' . str_replace(trim($route[0], '/'), '/', '-'),
         ];
-
-        return $options;
     }
 }

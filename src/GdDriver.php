@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 /** @noinspection PhpComposerExtensionStubsInspection */
 
 /**
  * @link http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -22,6 +25,7 @@ class GdDriver extends Driver
      * GdDriver constructor.
      *
      * @param Application $app
+     *
      * @throws InvalidConfigException
      */
     public function __construct(Application $app)
