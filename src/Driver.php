@@ -1,6 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
  * @link http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -73,7 +76,7 @@ abstract class Driver extends Component implements DriverInterface
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getFontFile(): string
     {
@@ -86,6 +89,7 @@ abstract class Driver extends Component implements DriverInterface
 
     /**
      * @param string $fontFile
+     *
      * @return Driver
      */
     public function setFontFile(string $fontFile): self
