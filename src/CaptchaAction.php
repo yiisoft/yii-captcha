@@ -60,7 +60,7 @@ class CaptchaAction extends Action
      *
      * ```php
      * [
-     *     '__class' => \Yiisoft\Yii\Captcha\ImagickDriver::class,
+     *     'class' => \Yiisoft\Yii\Captcha\ImagickDriver::class,
      *     // 'backColor' => 0xFFFFFF,
      *     // 'foreColor' => 0x2040A0,
      * ]
@@ -76,8 +76,8 @@ class CaptchaAction extends Action
      */
     public function run()
     {
-        if ($this->driver === null || (is_array($this->driver) && !isset($this->driver['__class']))) {
-            $this->driver['__class'] = GdDriver::class;
+        if ($this->driver === null || (is_array($this->driver) && !isset($this->driver['class']))) {
+            $this->driver['class'] = GdDriver::class;
         }
 
         $this->driver = $this->app->ensureObject($this->driver, DriverInterface::class);
