@@ -23,7 +23,7 @@
         "yiisoft/view": "^2.0"
     },
     "require-dev": {
-        "phan/phan": "^4.0",
+        "phan/phan": "^5.2",
         "phpunit/phpunit": "^9.4",
         "roave/infection-static-analysis-plugin": "^1.5",
         "spatie/phpunit-watcher": "^1.23",
