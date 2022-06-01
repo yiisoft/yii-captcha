@@ -20,7 +20,8 @@ class VerifyCodeGeneratorTraitTest extends TestCase
         $this->mockWebApplication();
 
         /* @var $driver Driver */
-        $driver = $this->getMockBuilder(Driver::class)
+        $driver = $this
+            ->getMockBuilder(Driver::class)
             ->setConstructorArgs([$this->app])
             ->getMockForAbstractClass();
 
