@@ -106,9 +106,11 @@ class CaptchaValidator extends Validator
             'hash' => $hash,
             'hashKey' => 'yiiCaptcha/' . $captcha->getUniqueId(),
             'caseSensitive' => $this->caseSensitive,
-            'message' => Yii::getApp()->getI18n()->format($this->message, [
-                'attribute' => $model->getAttributeLabel($attribute),
-            ], Yii::getApp()->language),
+            'message' => Yii::getApp()
+                ->getI18n()
+                ->format($this->message, [
+                    'attribute' => $model->getAttributeLabel($attribute),
+                ], Yii::getApp()->language),
         ];
         if ($this->skipOnEmpty) {
             $options['skipOnEmpty'] = 1;

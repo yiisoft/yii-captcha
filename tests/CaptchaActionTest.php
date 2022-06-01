@@ -35,13 +35,15 @@ class CaptchaActionTest extends \yii\tests\TestCase
     public function testRun()
     {
         /* @var $driver Driver|\PHPUnit_Framework_MockObject_MockObject */
-        $driver = $this->getMockBuilder(Driver::class)
+        $driver = $this
+            ->getMockBuilder(Driver::class)
             ->setConstructorArgs([$this->app])
             ->setMethods(['renderImage'])
             ->getMock();
 
 
-        $driver->expects($this->any())
+        $driver
+            ->expects($this->any())
             ->method('renderImage')
             ->willReturn('test image binary');
 
@@ -64,7 +66,8 @@ class CaptchaActionTest extends \yii\tests\TestCase
     public function testRunRefresh()
     {
         /* @var $driver Driver|\PHPUnit_Framework_MockObject_MockObject */
-        $driver = $this->getMockBuilder(Driver::class)
+        $driver = $this
+            ->getMockBuilder(Driver::class)
             ->setConstructorArgs([$this->app])
             ->getMockForAbstractClass();
 

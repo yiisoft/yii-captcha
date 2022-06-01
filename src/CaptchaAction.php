@@ -153,7 +153,9 @@ class CaptchaAction extends Action
     {
         $code = $this->getVerifyCode();
         $valid = $caseSensitive ? ($input === $code) : strcasecmp($input, $code) === 0;
-        $session = $this->getApp()->getSession();
+        $session = $this
+            ->getApp()
+            ->getSession();
         $session->open();
         $name = $this->getSessionKey() . 'count';
         $session[$name] += 1;
@@ -179,7 +181,9 @@ class CaptchaAction extends Action
      */
     protected function setHttpHeaders(): void
     {
-        $response = $this->getApp()->getResponse();
+        $response = $this
+            ->getApp()
+            ->getResponse();
         $response->setHeader('Pragma', 'public');
         $response->setHeader('Expires', '0');
         $response->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0');
