@@ -61,18 +61,12 @@ abstract class Driver extends Component implements DriverInterface
     protected $fontFile;
 
     /**
-     * @var Application
-     */
-    protected $app;
-
-    /**
      * Driver constructor.
      *
      * @param Application $app
      */
-    public function __construct(Application $app)
+    public function __construct(protected Application $app)
     {
-        $this->app = $app;
     }
 
     /**
@@ -87,11 +81,6 @@ abstract class Driver extends Component implements DriverInterface
         return $this->fontFile;
     }
 
-    /**
-     * @param string $fontFile
-     *
-     * @return Driver
-     */
     public function setFontFile(string $fontFile): self
     {
         $this->fontFile = $this->app->getAlias($fontFile);
